@@ -1,9 +1,6 @@
 package com.maja.sfgdi;
 
-import com.maja.sfgdi.controllers.ConstructorInjectedController;
-import com.maja.sfgdi.controllers.MyController;
-import com.maja.sfgdi.controllers.PropertyInjectedController;
-import com.maja.sfgdi.controllers.SetterInjectedController;
+import com.maja.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,8 +15,7 @@ public class SfgDiApplication {
 		//we do not provide instance of controller, we simply asked Spring context to provide it for us through beans and IoC container
 		//so the framework is going out and creating those objects for you and providing those instantiated objects
 
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+		System.out.println(myController.sayHello());
 
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 
@@ -32,6 +28,9 @@ public class SfgDiApplication {
 		ConstructorInjectedController constructorInjectedController=(ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 
 		System.out.println(constructorInjectedController.getGreeting());
+
+		I18nController i18nController=(I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 	}
 }
