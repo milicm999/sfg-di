@@ -1,12 +1,14 @@
 package com.maja.sfgdi;
 
 import com.maja.sfgdi.controllers.*;
+import com.maja.sfgdi.services.PrototypeBean;
+import com.maja.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"com.maja.pets,com","com.maja.sfgdi"})
+
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -39,5 +41,14 @@ public class SfgDiApplication {
 
 		System.out.println(petController.getBestPet());
 
+		SingletonBean singletonBean1=(SingletonBean) ctx.getBean(SingletonBean.class);
+		SingletonBean singletonBean2=(SingletonBean) ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getBeanScope());
+		System.out.println(singletonBean2.getBeanScope());
+
+		PrototypeBean prototypeBean1=(PrototypeBean) ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getBeanScope());
+		PrototypeBean prototypeBean2=(PrototypeBean) ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getBeanScope());
 	}
 }
