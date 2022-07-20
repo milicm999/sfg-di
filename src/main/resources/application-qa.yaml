@@ -1,0 +1,4 @@
+com:
+  username: qaUsernameYaml
+  password: qaPasswordYaml
+  jdbcurl: qaJdbcUrlYaml

@@ -1,0 +1,4 @@
+com:
+  username: devUsernameYaml
+  password: devPasswordYaml
+  jdbcurl: devJdbcUrlYaml
